@@ -1,0 +1,43 @@
+PUEBLO PE ARCADE — GITHUB INSTALLATION
+
+You will download five ZIP files. They are parts of one website.
+
+1. Create a new empty folder on your computer named:
+   Pueblo_PE_Arcade
+
+2. Extract all five ZIP files into that SAME folder.
+   If Windows asks whether to merge the assets folders, choose Yes.
+   Do not leave the files inside five separate folders.
+
+3. When finished, Pueblo_PE_Arcade should contain:
+   index.html
+   styles.css
+   app.js
+   config.js
+   manifest.webmanifest
+   service-worker.js
+   assets (folder)
+
+4. Open your GitHub repository.
+
+5. Select Add file, then Upload files.
+
+6. Open the Pueblo_PE_Arcade folder on your computer. Select all of the
+   files and the assets folder, then drag them onto the GitHub upload page.
+   Important: index.html must be in the main/root area of the repository,
+   not inside another Pueblo_PE_Arcade folder.
+
+7. Wait until every file finishes uploading. Enter a message such as:
+   Update Pueblo PE Arcade
+
+8. Select Commit changes.
+
+9. To turn on GitHub Pages, open Settings, then Pages. Under Build and
+   deployment choose Deploy from a branch. Select the main branch and the
+   /(root) folder, then select Save.
+
+10. Wait a few minutes, refresh the Pages screen, and open the displayed
+    website address.
+
+If replacing an older version, upload these files to the same repository and
+choose Replace when prompted. Then commit the changes.

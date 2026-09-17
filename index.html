@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#790020">
+  <title>Pueblo PE Arcade</title>
+  <meta name="description" content="Pueblo PE Arcade — real mini-games for fitness, badminton, volleyball, and workout builder.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="PE Arcade">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="splash" class="splash" aria-hidden="true">
+    <div class="pbig">P</div>
+    <strong>PUEBLO PE ARCADE</strong>
+    <span>Booting game arenas...</span>
+    <i></i>
+  </div>
+
+  <header class="topbar">
+    <div class="brand">
+      <button id="pHome" class="pmark" type="button" aria-label="Home">P</button>
+      <div>
+        <strong>PUEBLO PE ARCADE</strong>
+        <small id="subBrand">Fitness • Badminton • Volleyball</small>
+      </div>
+    </div>
+    <nav id="nav" hidden>
+      <button id="homeBtn" type="button">⌂ Home</button>
+      <button id="soundBtn" type="button" aria-label="Sound">🔊</button>
+      <button id="logoutBtn" type="button">Log Out</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="screen active">
+      <div class="homeShell">
+        <div class="homeCopy">
+          <p class="eyebrow">PUEBLO MIDDLE SCHOOL PE</p>
+          <h1>PE ARCADE</h1>
+          <p class="lead">Choose an arena, make the play, and build your PE skills with Coach Bobby, Spike, and the Pueblo Bulldogs.</p>
+          <div class="steps">
+            <span>1 Check in</span><span>2 Play PE games</span><span>3 Build makeup time</span><span>4 Email results</span>
+          </div>
+          <div class="login card">
+            <div class="checkinMascots" aria-hidden="true">
+              <img src="assets/ftb_puppy_squad.png" alt="">
+              <span><b>Bulldog Check-In</b><small>Finish a module. Earn your PE makeup credit.</small></span>
+            </div>
+            <h2>Player Check-In</h2>
+            <label>Student <input id="student" maxlength="28" autocomplete="off" placeholder="First name + last initial"></label>
+            <div class="row2">
+              <label>Grade 
+                <select id="grade">
+                  <option value="">Choose</option>
+                  <option value="6">6th</option>
+                  <option value="7">7th</option>
+                  <option value="8">8th</option>
+                </select>
+              </label>
+              <label>Period 
+                <select id="period">
+                  <option value="">Choose</option>
+                  <option>2</option><option>3</option><option>4</option><option>5</option><option>7</option><option>8</option>
+                </select>
+              </label>
+            </div>
+            <div class="creditRules">
+              <p><b>Earn PE makeup credit</b><span>Complete one full grade-level module, including its required questions and unlocked Spike mini-game.</span></p>
+              <p class="browserRule"><b>Stay inside the site</b><span>Use the Back buttons inside PE Arcade. Do not use your browser’s Back button—it can interrupt your work.</span></p>
+            </div>
+            <button id="startBtn" class="btn primary big" type="button">Start PE Makeup →</button>
+          </div>
+        </div>
+        <div class="homeArt" aria-label="Coach Bobby and the Pueblo Bulldog team from Follow the Puppy">
+          <img class="heroTeam" src="assets/art_home_bobby_spike_v2.png" alt="Coach Bobby and Spike welcoming students to Pueblo PE Arcade">
+          <div class="heroBadge"><b>PUEBLO</b><span>PLAY • LEARN • LEVEL UP</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="unitHub" class="screen">
+      <div class="page">
+        <div class="coachbar">
+          <img src="assets/art_home_bobby_spike_v2.png" alt="Coach Bobby and Spike">
+          <div>
+            <p class="eyebrow">CHOOSE YOUR ARENA</p>
+            <h2 id="welcomeTitle">Ready?</h2>
+            <p id="gradeNote">Choose a place to play. Rookie starts friendly and Pro / Elite build the challenge.</p>
+          </div>
+          <img src="assets/ui_spike_reward.png" alt="Spike and the Puppy Squad ready to play">
+        </div>
+        <div class="strip">
+          <div><span>Player</span><b id="stripPlayer">—</b></div>
+          <div><span>Grade / Period</span><b id="stripClass">—</b></div>
+          <div><span>Mode</span><b id="stripMode">PE Makeup</b></div>
+          <div><span>Modules</span><b id="stripTime">0 complete</b></div>
+        </div>
+        <div id="unitGrid" class="unitGrid"></div>
+        <div class="note">
+          <b>Credit requirement:</b> Finish one complete module. Grade 6 completes 10 questions, grade 7 completes 12, and grade 8 completes 14. After question 10, complete the unlocked Spike mini-game. Use only the Back buttons inside this site.
+        </div>
+      </div>
+    </section>
+
+    <section id="gameSelect" class="screen">
+      <div class="page">
+        <div class="gameTop">
+          <button class="btn secondary toUnits" type="button">← Arenas</button>
+          <div>
+            <p class="eyebrow" id="arenaEyebrow">ARENA</p>
+            <h2 id="arenaTitle">Games</h2>
+            <p id="arenaDesc">Pick a game. Rookie unlocks Pro. Pro unlocks Elite.</p>
+          </div>
+          <img id="arenaCharacter" class="arenaCharacter" src="assets/module_fitt.png" alt="Pueblo arena characters">
+        </div>
+        <div id="gameGrid" class="gameGrid"></div>
+      </div>
+    </section>
+
+    <section id="play" class="screen">
+      <div class="page playPage">
+        <div class="gameTop">
+          <button class="btn secondary toGameSelect" type="button">← Games</button>
+          <div>
+            <p class="eyebrow" id="playMeta">GAME</p>
+            <h2 id="playTitle">Challenge</h2>
+            <p id="playPrompt">Play the round.</p>
+          </div>
+          <div class="topTools">
+            <button id="hintBtn" class="btn hint" type="button">💡 Hint</button>
+          </div>
+        </div>
+        <div class="playCharacterBar" aria-hidden="true">
+          <img id="playCharacter" src="assets/module_fitt.png" alt="">
+          <p><b>Coach Bobby’s challenge:</b> Read the play, make your choice, and finish every question. Spike’s reward game unlocks after question 10.</p>
+        </div>
+        <div class="scorebar">
+          <span id="roundText">Round 1/5</span>
+          <span id="scoreText">Score 0</span>
+          <span id="streakText">Streak 0</span>
+          <span id="levelText">Rookie</span>
+          <div class="momentum" aria-label="Momentum meter"><i id="momentumFill"></i></div>
+        </div>
+        <div id="gameStage" class="stage"></div>
+        <div id="feedback" class="feedback" aria-live="polite"></div>
+        <div id="lesson" class="lesson hidden"></div>
+        <div class="playActions">
+          <button id="nextBtn" class="btn primary" type="button" disabled>Next →</button>
+          <button id="quitRoundBtn" class="btn secondary" type="button">Quit to Games</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="builder" class="screen">
+      <div class="page builderPage">
+        <div class="gameTop">
+          <button class="btn secondary toUnits" type="button">← Arenas</button>
+          <div>
+            <p class="eyebrow">WORKOUT BUILDER</p>
+            <h2>Build Your PE Workout</h2>
+            <p>Choose 15 exercises, then complete the 30 total sets. Credit comes from real set completion, not from leaving a timer running.</p>
+          </div>
+        </div>
+        <div class="builderLayout">
+          <div>
+            <div class="builderControls">
+              <button data-filter="all" class="selected" type="button">All</button>
+              <button data-filter="lower" type="button">Lower</button>
+              <button data-filter="upper" type="button">Upper</button>
+              <button data-filter="core" type="button">Core</button>
+              <button data-filter="cardio" type="button">Cardio</button>
+              <button data-filter="dumbbell" type="button">Dumbbell</button>
+            </div>
+            <div id="exerciseGrid" class="exerciseGrid"></div>
+          </div>
+          <div class="workoutTray">
+            <h3>My Workout <span id="workoutCount">0/15</span></h3>
+            <div id="selectedList" class="selectedList"></div>
+            <button id="startWorkoutBtn" class="btn primary" type="button" disabled>Start Workout</button>
+          </div>
+        </div>
+        <div id="workoutRun" class="workoutRun hidden">
+          <h3 id="workoutRunTitle">Workout in Progress</h3>
+          <div class="workoutMeta">
+            <span id="workoutProgress">0/0 sets</span>
+            <span id="workoutClock">00:00</span>
+          </div>
+          <div id="setList" class="setList"></div>
+          <div class="workoutFooter">
+            <button id="finishWorkoutBtn" class="btn primary" type="button" disabled>Finish Workout</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="results" class="screen">
+      <div class="page resultPage">
+        <div class="resultHero">
+          <img src="assets/ui_module_complete.png" alt="Coach Bobby, Spike, and the Puppy Squad celebrating">
+          <div>
+            <p class="eyebrow">SESSION COMPLETE</p>
+            <h2>Results for Coach</h2>
+            <p>Print, copy, or email this session. This version uses email and print — not Google Sheets.</p>
+          </div>
+        </div>
+        <pre id="resultText" class="resultText"></pre>
+        <div class="resultActions">
+          <button id="emailBtn" class="btn primary" type="button">Email Results to Coach</button>
+          <button id="printBtn" class="btn secondary" type="button">Print / Save</button>
+          <button id="copyBtn" class="btn secondary" type="button">Copy Results</button>
+          <button id="newSessionBtn" class="btn secondary" type="button">New Student</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
